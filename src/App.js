@@ -1,11 +1,19 @@
 import './App.css';
+import Signup from './components/Signup';
+import Cart from './components/Cart';
+import Shipping from './components/Shipping';
+import Payment from './components/Payment';
+import Confirmation from './components/Confirmation';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-       
-      </header>
+      <Signup />
+      <Cart />
+      <Shipping />
+      <Payment />
+      <Confirmation />
     </div>
   );
 }
