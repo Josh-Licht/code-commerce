@@ -48,7 +48,6 @@ class Signup extends Component {
     } else {
       this.setState({ errors });
     }
-    console.log(errors);
   };
 
   render() {
