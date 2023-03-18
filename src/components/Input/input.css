@@ -20,3 +20,10 @@
   font-size: 12px;
   font-weight: 600;
 }
+
+.inputContainer .eye{
+  position: absolute;
+  top: 27px;
+  right: 10px;
+  cursor: pointer;
+}
