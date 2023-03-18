@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Input from '../Input/Input';
-import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { FaEye, FaEyeSlash, FaFacebookF } from 'react-icons/fa';
 import { signup, input } from '../validation';
 import '../base.css';
 import './Signup.css'
@@ -87,6 +87,10 @@ class Signup extends Component {
 
     return (
       <form className='signUp' onSubmit={this.handleSubmit}>
+        {Object.keys(errors).length > 0 
+          ? <span className='errorMsg'>We're sorry, but one or more fields are incomplete or incorrect. <u>Find error(s)</u>.</span>
+          : null 
+        }
         {
           inputData.map((item) => (
             <Input
@@ -105,7 +109,19 @@ class Signup extends Component {
             />
           ))
         }
-        <button type="submit">Save</button>
+        <button type="submit" className='save'>Save</button>
+        <div className='divider'>or</div>
+        <button className='facebook'>
+          <FaFacebookF className="icon"/>
+          sign up with facebook
+        </button>
+        <span className='cancel'><u>Cancel</u></span>
+        <div className='terms'>
+          {['Privacy Policy and Cookies','Terms of Sale and Use'].map(
+              item => <span><u>{item}</u></span>
+            )
+          }
+        </div>
       </form>
     );
   }

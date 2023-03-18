@@ -26,3 +26,10 @@ form input {
 form input {
   width: 100%;
 }
+
+button {
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

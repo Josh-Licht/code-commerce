@@ -1,10 +1,107 @@
+/** default styles */
 .signUp input {
   padding: 4px;
   margin:  2px 0;
   border: 2px solid #8a8a8a54;
 }
 
-.signUp button:hover {
-  background-color: #9e0404;
+.signUp button {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
   transition: all .2s ease-in-out;
+}
+
+/** custom styles */
+.signUp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.signUp .errorMsg {
+  text-align: left;
+  font-size: 13px;
+  padding-bottom: 20px;
+  color: red;
+}
+
+/** save button */
+.signUp button.save {
+  background-color: crimson;
+  color: white;
+  font-weight: 600;
+}
+
+.signUp button.save:hover {
+  background-color: #9e0404;
+}
+
+/** facebook button */
+.signUp button.facebook {
+  background-color: #4267B2;
+  color: white;
+  font-weight: 600;
+}
+
+.signUp button.facebook:hover {
+  background-color: #2d4f92;
+}
+
+.signUp button .icon {
+  padding-right: 16px;
+  font-size: 16px;
+}
+
+/** divider */
+.signUp .divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  color: #868686;
+  border-color: transparent;
+  font-weight: 600;
+}
+
+/* To show the lines on right 
+and left sides of the text */
+.signUp .divider::after,
+.signUp .divider::before {
+  content: "";
+  border: 1px solid #c2c2c28a;
+  flex: 1;
+}
+
+/* Space on left and right sides of text */
+.signUp .divider:not(:empty)::before {
+  margin-right: 0.60em;
+}
+
+.signUp .divider:not(:empty)::after {
+  margin-left: 0.60em;
+}
+
+/** cancel */
+.signUp .cancel {
+  padding: 10px 0;
+}
+
+/** terms  */
+.signUp .terms {
+  padding: 10px 0;
+}
+
+.signUp .terms span {
+  font-size: 12px;
+  padding: 0 10px;
+  color: #696969c9;
+  font-weight: 600;
+}
+
+.signUp .terms span:first-child {
+  border-right: 2px solid #86868663;
+  height: 10px;
 }

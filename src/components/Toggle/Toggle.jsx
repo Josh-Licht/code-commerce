@@ -1,6 +1,7 @@
 import React from 'react';
 import Login from '../Login/Login';
 import Signup from '../Signup/Signup';
+import { IoMdClose } from 'react-icons/io';
 import '../base.css';
 import './Toggle.css'
 
@@ -14,7 +15,7 @@ class Toggle extends React.Component {
 
   handleOptionChange = (event) => {
     const value = event.target.value;
-    const login = value === 'create';
+    const login = value === 'sign-in';
     this.setState({ login });
   }
 
@@ -22,12 +23,13 @@ class Toggle extends React.Component {
     const { login } = this.state;
 
     const options = [
-      {label: 'Sign In', value: 'sign-in', checked: !login},
-      {label: 'Create Account', value: 'create', checked: login},
+      {label: 'Sign In', value: 'sign-in', checked: login},
+      {label: 'Create Account', value: 'create', checked: !login},
     ]
 
     return (
       <div className='container'>
+        <IoMdClose className="close" /> 
         <div className='toggle'>
           {options.map((item) => (
             <>
@@ -42,7 +44,7 @@ class Toggle extends React.Component {
             </>
           ))}
         </div>
-        {login ? <Signup /> : <Login />}
+        {login ? <Login /> : <Signup />}
       </div>
     );
   }
