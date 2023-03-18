@@ -1,0 +1,77 @@
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+form {
+  width: 100%;
+
+}
+
+form label {
+  width: 100%;
+  text-align: left;
+}
+
+form input {
+  width: 100%;
+}
+
+.authContainer {
+  display: flex;
+  flex-direction: column;
+  width: 25vw;
+  align-items: flex-start;
+  padding: 0 20px;
+  margin-top: 50px;
+  background-color: #f5f5f554;
+  box-shadow: 4px 12px 26px 5px #00000054;
+}
+
+.authToggle {
+  padding: 20px 0;
+}
+
+.authToggle input[value='create']:checked
+/* .authToggle input[value='create']:checked + label*/ {
+  accent-color: #9e0404;
+}
+
+.authToggle label {
+  margin: 0 30px 0 10px;
+}
+
+.authToggle label:last-child {
+  color: #9e0404;
+}
+
+/** Signup */
+.signUp input {
+  padding: 6px;
+  margin:  8px 0 10px;
+  border: 2px solid #8a8a8a54;
+}
+
+/** Login */
+.login input {
+  padding: 6px;
+  margin:  8px 0 10px;
+  border: 2px solid #8a8a8a54;
+}
+
+.login button, .signUp button {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  background-color: crimson;
+  color: white;
+}
+
+.login button:hover,
+.signUp button:hover {
+  background-color: #9e0404;
+  transition: all .2s ease-in-out;
+}

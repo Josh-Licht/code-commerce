@@ -11,7 +11,9 @@ class Cart extends React.Component {
   render() {
     return (
       // Cart component JSX goes here
-      <div></div>
+      <div>
+        
+      </div>
     );
   }
 }
