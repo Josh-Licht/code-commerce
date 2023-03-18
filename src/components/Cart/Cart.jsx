@@ -1,4 +1,6 @@
 import React from 'react';
+import '../base.css';
+import './Cart.css'
 
 class Cart extends React.Component {
   constructor(props) {

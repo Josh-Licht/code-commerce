@@ -1,0 +1,10 @@
+.signUp input {
+  padding: 4px;
+  margin:  2px 0;
+  border: 2px solid #8a8a8a54;
+}
+
+.signUp button:hover {
+  background-color: #9e0404;
+  transition: all .2s ease-in-out;
+}

@@ -1,5 +1,7 @@
 import React from 'react';
-import ProgressBar from './ProgressBar';
+import ProgressBar from '../ProgressBar';
+import '../base.css';
+import './Confirmation.css'
 
 class Confirmation extends React.Component {
   constructor(props) {

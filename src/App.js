@@ -1,5 +1,5 @@
 import './App.css';
-import Auth from './components/account/Auth';
+import Auth from './components/Toggle/Toggle';
 // import Cart from './components/Cart';
 // import Shipping from './components/Shipping';
 // import Payment from './components/Payment';

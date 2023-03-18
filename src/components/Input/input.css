@@ -1,0 +1,22 @@
+.inputContainer {
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.inputContainer .inputError {
+  border: 2px solid rgb(255, 169, 169);
+  background-color: rgb(253, 238, 238);
+}
+
+.error {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: red;
+  font-size: 14px;
+}
+
+.inputContainer span {
+  font-size: 12px;
+  font-weight: 600;
+}

@@ -1,9 +1,10 @@
 import React from 'react';
-import Login from './Login';
-import Signup from './Signup';
-import './Account.css'
+import Login from '../Login/Login';
+import Signup from '../Signup/Signup';
+import '../base.css';
+import './Toggle.css'
 
-class Auth extends React.Component {
+class Toggle extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -26,8 +27,8 @@ class Auth extends React.Component {
     ]
 
     return (
-      <div className='authContainer'>
-        <div className='authToggle'>
+      <div className='container'>
+        <div className='toggle'>
           {options.map((item) => (
             <>
               <input
@@ -47,4 +48,4 @@ class Auth extends React.Component {
   }
 }
 
-export default Auth;
+export default Toggle;

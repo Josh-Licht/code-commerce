@@ -1,5 +1,8 @@
 import React from 'react';
-import ProgressBar from './ProgressBar';
+import ProgressBar from '../ProgressBar';
+import '../base.css';
+import './Shipping.css';
+
 
 class Shipping extends React.Component {
   constructor(props) {

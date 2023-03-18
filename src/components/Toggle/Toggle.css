@@ -1,25 +1,4 @@
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-bottom: 20px;
-}
-
-form {
-  width: 100%;
-
-}
-
-form label {
-  width: 100%;
-  text-align: left;
-}
-
-form input {
-  width: 100%;
-}
-
-.authContainer {
+.container {
   display: flex;
   flex-direction: column;
   width: 25vw;
@@ -30,27 +9,27 @@ form input {
   box-shadow: 4px 12px 26px 5px #00000054;
 }
 
-.authToggle {
-  padding: 20px 0;
+.toggle {
+  padding: 20px 0 20px;
 }
 
-.authToggle input[value='create']:checked
+.toggle input[value='create']:checked
 /* .authToggle input[value='create']:checked + label*/ {
   accent-color: #9e0404;
 }
 
-.authToggle label {
+.toggle label {
   margin: 0 30px 0 10px;
 }
 
-.authToggle label:last-child {
+.toggle label:last-child {
   color: #9e0404;
 }
 
 /** Signup */
 .signUp input {
-  padding: 6px;
-  margin:  8px 0 10px;
+  padding: 4px;
+  margin:  2px 0;
   border: 2px solid #8a8a8a54;
 }
 

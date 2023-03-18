@@ -1,7 +1,8 @@
 import React from 'react';
-import Input from '../Input';
+import Input from '../Input/Input';
 import { login } from '../validation';
-import './Account.css'
+import '../base.css';
+import './Login.css';
 
 class Login extends React.Component {
   constructor(props) {

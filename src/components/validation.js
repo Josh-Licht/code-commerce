@@ -1,31 +1,35 @@
-export const signup = (firstName, lastName, email, password, confirmPassword, postalCode) => {
+const validate = (firstName, lastName, email, password, confirmPassword, postalCode) => {
   const errors = {};
 
   if (!firstName) {
-    errors.firstName = 'Please enter your first name';
+    errors.firstName = 'Please enter a valid first name';
   } else if (!/^[A-Za-z]+$/.test(firstName)) {
     errors.firstName = 'First name cannot contain numbers';
   }
 
   if (!lastName) {
-    errors.lastName = 'Please enter your last name';
+    errors.lastName = 'Please enter a valid last name';
   } else if (!/^[A-Za-z]+$/.test(lastName)) {
     errors.lastName = 'Last name cannot contain numbers';
   }
 
   if (!email) {
-    errors.email = 'Please enter your email';
+    errors.email = 'Please enter a valid email';
   } else if (!/\S+@\S+\.\S+/.test(email)) {
     errors.email = 'Invalid email address';
   }
 
   if (!password) {
     errors.password = 'Password is required';
-  } else if (password.length < 8) {
-    errors.password = 'Password must be at least 8 characters';
-  }
-
-  console.log(confirmPassword === password);
+  } else if (!/[A-Z]/.test(password)) {
+    errors.password = 'Must contain one uppercase letter';
+  } else if (!/[a-z]/.test(password)) {
+    errors.password = 'Must contain one lowercase letter';
+  } else if (!/[!@#$%^&*()_+]/.test(password)) {
+    errors.password = 'Must contain one special character';
+  } else if (!/[0-9a-zA-Z!@#$%^&*()_+]{8,20}/.test(password)) {
+    errors.password = 'Must be between 8-20 characters long';
+  } 
 
   if (!confirmPassword) {
     errors.confirmPassword = 'Confirm password is required';
@@ -39,7 +43,20 @@ export const signup = (firstName, lastName, email, password, confirmPassword, po
     errors.postalCode = 'Postal code must only contain numbers';
   }
 
-  return errors;
+  return errors
+}
+
+export const signup = (firstName, lastName, email, password, confirmPassword, postalCode) => {
+  const errors = validate(firstName, lastName, email, password, confirmPassword, postalCode)
+
+  return errors
+}
+
+export const input = (input) => {
+  const {firstName, lastName, email, password, confirmPassword, postalCode} = input;
+  const errors = validate(firstName, lastName, email, password, confirmPassword, postalCode)
+
+  return errors
 }
 
 export const login = (email, password) => {

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import Input from '../Input';
-import { signup } from '../validation';
-import './Account.css'
+import Input from '../Input/Input';
+import { signup, input } from '../validation';
+import '../base.css';
+import './Signup.css'
 
 class Signup extends Component {
   constructor(props) {
@@ -19,8 +20,13 @@ class Signup extends Component {
 
   handleChange = (event) => {
     const { name, value } = event.target;
+    const errors = input({ [name]: value })
     this.setState({
       [name]: value,
+      errors: {
+        ...this.state.errors,
+        [name]: errors[name]
+      }
     });
   };
 
@@ -28,13 +34,13 @@ class Signup extends Component {
     event.preventDefault();
     const { firstName, lastName, email, password, confirmPassword, postalCode } = this.state;
     const errors = signup(firstName, lastName, email, password, confirmPassword, postalCode);
-    console.log(signup(password));
     if (Object.keys(errors).length === 0) {
       // Handle successful signup here
       console.log('Signup successful');
     } else {
       this.setState({ errors });
     }
+    console.log(errors);
   };
 
   render() {
@@ -42,7 +48,7 @@ class Signup extends Component {
 
     const inputData = [
       {label: 'Your E-Mail Address *', name: 'email', type: "email", value: email, onChange: this.handleChange, error: errors.email},
-      {label: 'Create Password *', name: 'password', type: "password", value: password, onChange: this.handleChange, error: errors.password},
+      {label: 'Create Password *', name: 'password', type: "password", value: password, onChange: this.handleChange, error: errors.password, msg: 'Password must be 8-20 characters, including at least one capital letter, at least one small letter, one number and one special character - ! @ # $ % ^ & * ( ) _ +'},
       {label: 'Confirm Password *', name: 'confirmPassword', type: 'password', value: confirmPassword, onChange: this.handleChange, error: errors.confirmPassword},
       {label: 'First Name *', name: 'firstName', value: firstName, onChange: this.handleChange, error: errors.firstName, patter: "[A-Za-z]+", title: 'First name cannot contain numbers'},
       {label: 'Surname *', name: 'lastName', value: lastName, onChange: this.handleChange, error: errors.lastName, patter: "[A-Za-z]+", title: 'Last name cannot contain numbers'},
@@ -63,6 +69,7 @@ class Signup extends Component {
               error={item.error}
               pattern={item.patter}
               title={item.title}
+              msg={item.msg}
               required
             />
           ))
