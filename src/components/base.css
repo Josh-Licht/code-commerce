@@ -33,3 +33,8 @@ button {
   align-items: center;
   justify-content: center;
 }
+
+input[type='radio']{
+  cursor: pointer;
+}
+

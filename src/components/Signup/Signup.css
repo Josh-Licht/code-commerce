@@ -87,6 +87,7 @@ and left sides of the text */
 /** cancel */
 .signUp .cancel {
   padding: 10px 0;
+  cursor: pointer;
 }
 
 /** terms  */
@@ -99,6 +100,7 @@ and left sides of the text */
   padding: 0 10px;
   color: #696969c9;
   font-weight: 600;
+  cursor: pointer;
 }
 
 .signUp .terms span:first-child {
