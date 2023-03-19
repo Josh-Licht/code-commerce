@@ -21,11 +21,19 @@
   align-items: center;
 }
 
-.signUp .errorMsg {
+.signUp .errorMsg,
+.signUp .msg {
   text-align: left;
-  font-size: 13px;
   padding-bottom: 20px;
   color: red;
+}
+.signUp .errorMsg {
+  font-size: 13px;
+}
+
+.signUp .msg {
+  font-size: 16px;
+  color: green;
 }
 
 /** save button */

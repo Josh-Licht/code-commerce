@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Input from '../Input/Input';
 import { FaEye, FaEyeSlash, FaFacebookF } from 'react-icons/fa';
 import { signup, input } from '../validation';
+import userData from "../userData.json";
 import '../base.css';
 import './Signup.css'
 
@@ -16,7 +17,7 @@ class Signup extends Component {
       confirmPassword: '',
       postalCode: '',
       errors: {},
-      showPassword: false,
+      showPassword: false
     };
   }
 
@@ -28,30 +29,59 @@ class Signup extends Component {
 
   handleChange = (event) => {
     const { name, value } = event.target;
-    const errors = input({ [name]: value })
+
     this.setState({
-      [name]: value,
-      errors: {
-        ...this.state.errors,
-        [name]: errors[name]
-      }
+      [name]: value
+    }, () => {
+      const errors = input(this.state)
+
+      errors[name] === undefined ? this.setState({ errors: {} }) 
+      : this.setState({
+        errors: {
+          ...this.state.errors,
+          [name]: errors[name]
+        }
+      })
     });
   };
 
   handleSubmit = (event) => {
     event.preventDefault();
-    const { firstName, lastName, email, password, confirmPassword, postalCode } = this.state;
-    const errors = signup(firstName, lastName, email, password, confirmPassword, postalCode);
+    const { firstName, lastName, email, password, postalCode } = this.state;
+    const errors = signup(this.state);
+
     if (Object.keys(errors).length === 0) {
-      // Handle successful signup here
-      console.log('Signup successful');
+      // Create new user object
+      const newUser = {
+        firstName,
+        lastName,
+        email,
+        password,
+        postalCode
+      };
+
+      // Add new user to userData.json
+      userData.users.push(newUser)
+      console.log(userData.users);
+
+      // Clear form inputs and show success message
+      this.setState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+        postalCode: "",
+        errors: {},
+        msg: "Account created successfully!",
+      });
     } else {
       this.setState({ errors });
     }
   };
 
   render() {
-    const { firstName, lastName, email, password, confirmPassword, postalCode, errors, showPassword  } = this.state;
+    const { firstName, lastName, email, password, confirmPassword, postalCode, errors, msg, showPassword  } = this.state;
 
     const inputData = [
       {
@@ -86,14 +116,15 @@ class Signup extends Component {
 
     return (
       <form className='signUp' onSubmit={this.handleSubmit}>
-        {Object.keys(errors).length > 0 
+        {Object.keys(errors).length !== 0 
           ? <span className='errorMsg'>We're sorry, but one or more fields are incomplete or incorrect. <u>Find error(s)</u>.</span>
           : null 
         }
+        {msg ? <span className='msg'>{msg}</span>: null }
         {
           inputData.map((item) => (
             <Input
-              key={item.label}
+              key={item.name}
               label={item.label}
               name={item.name}
               value={item.value}
@@ -117,9 +148,8 @@ class Signup extends Component {
         <span className='cancel'><u>Cancel</u></span>
         <div className='terms'>
           {['Privacy Policy and Cookies','Terms of Sale and Use'].map(
-              item => <span><u>{item}</u></span>
-            )
-          }
+            item => <span><u>{item}</u></span>
+          )}
         </div>
       </form>
     );

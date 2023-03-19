@@ -1,4 +1,5 @@
-const validate = (firstName, lastName, email, password, confirmPassword, postalCode) => {
+const validate = (data) => {
+  const {firstName, lastName, email, password, confirmPassword, postalCode} = data
   const errors = {};
 
   if (!firstName) {
@@ -46,18 +47,10 @@ const validate = (firstName, lastName, email, password, confirmPassword, postalC
   return errors
 }
 
-export const signup = (firstName, lastName, email, password, confirmPassword, postalCode) => {
-  const errors = validate(firstName, lastName, email, password, confirmPassword, postalCode)
+export const signup = (data) => validate(data)
 
-  return errors
-}
+export const input = (data) => validate(data)
 
-export const input = (input) => {
-  const {firstName, lastName, email, password, confirmPassword, postalCode} = input;
-  const errors = validate(firstName, lastName, email, password, confirmPassword, postalCode)
-
-  return errors
-}
 
 export const login = (email, password) => {
   const errors = {};

@@ -1,6 +1,7 @@
 import React from 'react';
 import Input from '../Input/Input';
 import { login } from '../validation';
+import userData from '../userData.json';
 import '../base.css';
 import './Login.css';
 
@@ -25,7 +26,25 @@ class Login extends React.Component {
     const errors = login(email, password);
     if (Object.keys(errors).length === 0) {
       // make api call to authenticate user
-      this.props.history.push('/cart');
+      const user = userData.users.find(u => u.email === email && u.password === password);
+
+      if (!user) {
+        this.setState({
+          errors: 'Invalid username or password'
+        });
+        return 
+      }
+
+      // Successful login
+      console.log('Logged in as:', user.firstName, user.lastName);
+      
+      this.setState({
+        email: '',
+        password: '',
+      })
+      // TODO: Redirect to dashboard
+      //this.props.history.push('/cart');
+
     } else {
       this.setState({ errors });
     }
@@ -41,6 +60,10 @@ class Login extends React.Component {
 
     return (
       <form className='login' onSubmit={this.handleSubmit}>
+        {Object.keys(errors).length > 0 
+          ? <span className='errorMsg'>{errors}</span>
+          : null 
+        }
         {inputData.map((item) => (
           <Input
             key={item.label}

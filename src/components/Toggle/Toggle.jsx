@@ -15,7 +15,7 @@ class Toggle extends React.Component {
 
   handleOptionChange = (event) => {
     const value = event.target.value;
-    const login = value === 'sign-in';
+    const login = value === 'create';
     this.setState({ login });
   }
 
@@ -23,8 +23,8 @@ class Toggle extends React.Component {
     const { login } = this.state;
 
     const options = [
-      {label: 'Sign In', value: 'sign-in', checked: login},
-      {label: 'Create Account', value: 'create', checked: !login},
+      {label: 'Sign In', value: 'sign-in', checked: !login},
+      {label: 'Create Account', value: 'create', checked: login},
     ]
 
     return (
@@ -44,7 +44,7 @@ class Toggle extends React.Component {
             </>
           ))}
         </div>
-        {login ? <Login /> : <Signup />}
+        {login ? <Signup /> : <Login />}
       </div>
     );
   }

@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "email": "johndoe@example.com",
+      "password": "1234",
+      "firstName": "John",
+      "lastName": "Doe",
+      "postcode": "12345"
+    },
+    {
+      "email": "janedoe@example.com",
+      "password": "1234",
+      "firstName": "Jane",
+      "lastName": "Doe",
+      "postcode": "12345"
+    },
+    {
+      "email": "bobsmith@example.com",
+      "password": "1234",
+      "firstName": "Bob",
+      "lastName": "Smith",
+      "postcode": "12345"
+    }
+  ]
+}
