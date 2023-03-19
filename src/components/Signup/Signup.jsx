@@ -62,7 +62,6 @@ class Signup extends Component {
 
       // Add new user to userData.json
       userData.users.push(newUser)
-      console.log(userData.users);
 
       // Clear form inputs and show success message
       this.setState({
