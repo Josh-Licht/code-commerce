@@ -1,0 +1,67 @@
+.progress-bar-container {
+  height: 20%;
+  width: 100%;
+  position: relative;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 98%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.bullet {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 10%;
+  font-size: 12px;
+  color: #6e6e6e;
+}
+
+.bullet .icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #ececec;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8px;
+  z-index: 2;
+}
+
+.bullet i {
+  font-size: 12px;
+  color: #d4d4d4;
+}
+
+.bullet.active {
+  color: #444444;
+}
+
+.bullet.active .icon,
+.bullet.active i,
+.progress-bar .bullet.active:not(:first-child)::before {
+  color: #e0e0e0;
+  background-color: #444444;
+}
+
+.bullet::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: -250%;
+  width: 250px;
+  height: 10px;
+  background-color: #ececec;
+}
+
+.bullet:first-child::before,
+.bullet:first-child::after {
+  display: none;
+}

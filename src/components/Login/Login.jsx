@@ -24,6 +24,7 @@ class Login extends React.Component {
     event.preventDefault();
     const { email, password } = this.state;
     const errors = login(email, password);
+    console.log(Object.keys(errors).length === 0);
     if (Object.keys(errors).length === 0) {
       // make api call to authenticate user
       const user = userData.users.find(u => u.email === email && u.password === password);
@@ -35,16 +36,15 @@ class Login extends React.Component {
         return 
       }
 
-      // Successful login
       console.log('Logged in as:', user.firstName, user.lastName);
       
+      console.log('test', this.props.onLoginSuccess());
+      this.props.onLoginSuccess(); // Call the parent function
+
       this.setState({
         email: '',
         password: '',
       })
-      // TODO: Redirect to dashboard
-      //this.props.history.push('/cart');
-
     } else {
       this.setState({ errors });
     }
@@ -58,10 +58,11 @@ class Login extends React.Component {
       {label: 'Password', type: 'password', name: 'password', value: password, error: errors.password, onChange: this.handleInputChange},
     ]
 
+
     return (
       <form className='login' onSubmit={this.handleSubmit}>
-        {Object.keys(errors).length > 0 
-          ? <span className='errorMsg'>{errors}</span>
+        {Object.keys(errors).length !== 0 
+          ? <span className='errorMsg'>We're sorry, but one or more fields are incomplete or incorrect.</span>
           : null 
         }
         {inputData.map((item) => (

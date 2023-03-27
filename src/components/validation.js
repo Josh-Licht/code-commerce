@@ -51,7 +51,6 @@ export const signup = (data) => validate(data)
 
 export const input = (data) => validate(data)
 
-
 export const login = (email, password) => {
   const errors = {};
 

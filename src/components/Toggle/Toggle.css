@@ -1,5 +1,4 @@
-.container {
-  display: flex;
+.App .toggle-container {
   flex-direction: column;
   width: 25vw;
   align-items: flex-start;
@@ -10,7 +9,7 @@
   position: relative;
 }
 
-.container .close {
+.toggle-container .close {
   position: absolute;
   top: 0;
   right: 0;

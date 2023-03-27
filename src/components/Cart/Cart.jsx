@@ -1,4 +1,5 @@
 import React from 'react';
+import ProgressBar from '../ProgressBar/ProgressBar'
 import '../base.css';
 import './Cart.css'
 
@@ -13,8 +14,18 @@ class Cart extends React.Component {
   render() {
     return (
       // Cart component JSX goes here
-      <div>
-        
+      <div className="cart-container">
+        <div className="cart shadow-bg">
+          <div className="cart-left">
+            <ProgressBar />
+            <div className="cart-items shadow-sm">
+      
+            </div>
+          </div>
+          <div className="cart-summary shadow-sm">
+
+          </div>
+        </div>
       </div>
     );
   }

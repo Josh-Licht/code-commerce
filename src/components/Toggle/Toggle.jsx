@@ -21,6 +21,7 @@ class Toggle extends React.Component {
 
   render() {
     const { login } = this.state;
+    const { onLoginSuccess } = this.props;
 
     const options = [
       {label: 'Sign In', value: 'sign-in', checked: !login},
@@ -28,7 +29,7 @@ class Toggle extends React.Component {
     ]
 
     return (
-      <div className='container'>
+      <div className='toggle-container'>
         <IoMdClose className="close" /> 
         <div className='toggle'>
           {options.map((item) => (
@@ -44,7 +45,7 @@ class Toggle extends React.Component {
             </>
           ))}
         </div>
-        {login ? <Signup /> : <Login />}
+        {login ? <Signup /> : <Login onLoginSuccess={onLoginSuccess} />}
       </div>
     );
   }
